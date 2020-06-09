@@ -1,0 +1,25 @@
+These are for future reference
+
+The images are roughly split into:
+
+Standalone – Images that create a standalone Selenium server. You’ll only be able to run one of these at a time on your local machine or the port (4444) will conflict.
+Hub – Image that creates a central Selenium server in grid configuration.
+Node – Images that are used in conjunction with the “Hub” image to create a Selenium grid. You can start multiple node containers that connect to your Hub image.
+Base – Images that you can you use to build your own images
+
+Standalone:
+
+docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.4.0
+
+docker run -d -p 4444:4444 selenium/standalone-firefox:3.4.0
+
+
+grid link : http://localhost:4444/grid/console
+
+Setting up a Selenium Grid only requires a few different steps.
+
+To start a small grid with 1 Chrome and 1 Firefox node you can run the following commands:
+
+$ docker run -d -p 4444:4444 --name selenium-hub selenium/hub:3.4.0
+$ docker run -d --link selenium-hub:hub selenium/node-chrome:3.4.0
+$ docker run -d --link selenium-hub:hub selenium/node-firefox:3.4.0

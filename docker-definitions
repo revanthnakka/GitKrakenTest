@@ -1,0 +1,9 @@
+Dockerfile and Docker Compose are two different concepts in Dockerland. When we talk about Docker, the first things that come to mind are orchestration, OS level virtualization, images, containers, etc.. I will try to explain each as follows:
+
+Image: An image is an immutable, shareable file that is stored in a Docker-trusted registry. A Docker image is built up from a series of read-only layers. Each layer represents an instruction that is being given in the image’s Dockerfile. An image holds all the required binaries to run
+
+Container: An instance of an image is called a container. A container is just an executable image binary that is to be run by the host OS. A running image is a container.
+
+Dockerfile: A Dockerfile is a text document that contains all of the commands / build instructions, a user could call on the command line to assemble an image. This will be saved as a Dockerfile. (Note the lowercase 'f'.)
+
+Docker-Compose: Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services (containers). Then, with a single command, you create and start all the services from your configuration. The Compose file would be saved as docker-compose.yml
